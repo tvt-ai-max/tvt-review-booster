@@ -55,7 +55,7 @@
     submitRatingBtn.disabled = true;
     submitRatingBtn.innerHTML = '<span class="spinner"></span>Đang xử lý...';
 
-    fetch('/api/v1/sentiment', {
+    fetch('api/v1/sentiment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ rating: state.rating }),
@@ -119,7 +119,7 @@
       rating: state.rating,
     };
 
-    fetch('/api/v1/feedback', {
+    fetch('api/v1/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),

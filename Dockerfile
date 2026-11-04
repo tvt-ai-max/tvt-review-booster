@@ -8,7 +8,8 @@ RUN npm ci --omit=dev
 COPY src/ ./src/
 COPY public/ ./public/
 
-RUN mkdir -p ./src/data
+ENV DATA_DIR=/app/data
+RUN mkdir -p /app/data ./src/data && chown -R node:node /app/data ./src/data
 
 EXPOSE 3003
 

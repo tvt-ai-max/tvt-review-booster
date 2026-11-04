@@ -20,6 +20,7 @@ try {
 const apiRoutes = require('./routes/api');
 
 const app = express();
+app.set('trust proxy', 1);
 
 if (helmet) {
   app.use(helmet({ contentSecurityPolicy: false }));
