@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TVT Review Booster — Đánh Giá Trải Nghiệm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">⭐</span>
+        <h1>Đánh Giá Trải Nghiệm</h1>
+      </div>
+      <p class="subtitle">Ý kiến của bạn giúp chúng tôi phục vụ tốt hơn!</p>
+    </header>
+
+    <!-- Screen 1: Rating Selection -->
+    <section id="screen-rating" class="screen active">
+      <h2>Bạn đánh giá dịch vụ của chúng tôi như thế nào?</h2>
+      <div class="stars-container">
+        <button class="star-btn" data-rating="1" aria-label="1 sao">
+          <span class="star-icon">★</span>
+          <span class="emoji">😡</span>
+        </button>
+        <button class="star-btn" data-rating="2" aria-label="2 sao">
+          <span class="star-icon">★</span>
+          <span class="emoji">🙁</span>
+        </button>
+        <button class="star-btn" data-rating="3" aria-label="3 sao">
+          <span class="star-icon">★</span>
+          <span class="emoji">😐</span>
+        </button>
+        <button class="star-btn" data-rating="4" aria-label="4 sao">
+          <span class="star-icon">★</span>
+          <span class="emoji">😊</span>
+        </button>
+        <button class="star-btn" data-rating="5" aria-label="5 sao">
+          <span class="star-icon">★</span>
+          <span class="emoji">🤩</span>
+        </button>
+      </div>
+      <p id="rating-label" class="rating-label"></p>
+      <button id="btn-submit-rating" class="btn btn-primary" disabled>TIẾP TỤC</button>
+    </section>
+
+    <!-- Screen 2A: Positive - Google Review -->
+    <section id="screen-positive" class="screen">
+      <div class="result-icon">🎉</div>
+      <h2>Cảm ơn bạn rất nhiều!</h2>
+      <p class="thank-you-text">Chúng tôi rất vui khi bạn hài lòng với dịch vụ. Đánh giá của bạn trên Google Maps sẽ giúp nhiều người biết đến chúng tôi hơn!</p>
+
+      <div class="review-templates">
+        <h3>Gợi ý nội dung đánh giá:</h3>
+        <div class="template" data-template="Dịch vụ chuyên nghiệp, nhân viên nhiệt tình, rất hài lòng!">
+          <span class="template-text">📝 "Dịch vụ chuyên nghiệp, nhân viên nhiệt tình, rất hài lòng!"</span>
+          <button class="btn-copy" title="Sao chép">📋</button>
+        </div>
+        <div class="template" data-template="Bác sĩ tận tâm, cơ sở vật chất hiện đại, chắc chắn sẽ quay lại!">
+          <span class="template-text">📝 "Bác sĩ tận tâm, cơ sở vật chất hiện đại, chắc chắn sẽ quay lại!"</span>
+          <button class="btn-copy" title="Sao chép">📋</button>
+        </div>
+        <div class="template" data-template="Trải nghiệm tuyệt vời, giá cả hợp lý, recommend cho mọi người!">
+          <span class="template-text">📝 "Trải nghiệm tuyệt vời, giá cả hợp lý, recommend cho mọi người!"</span>
+          <button class="btn-copy" title="Sao chép">📋</button>
+        </div>
+      </div>
+
+      <a id="google-review-link" href="#" target="_blank" rel="noopener" class="btn btn-google">
+        ⭐ ĐÁNH GIÁ TRÊN GOOGLE MAPS
+      </a>
+    </section>
+
+    <!-- Screen 2B: Negative - Feedback Form -->
+    <section id="screen-negative" class="screen">
+      <div class="result-icon">🙏</div>
+      <h2>Chúng tôi rất tiếc!</h2>
+      <p class="apology-text">Xin lỗi vì trải nghiệm chưa tốt. Góp ý của bạn sẽ giúp chúng tôi cải thiện dịch vụ.</p>
+
+      <form id="feedback-form" class="feedback-form">
+        <div class="form-group">
+          <label for="feedback-name">Họ và tên <span class="required">*</span></label>
+          <input type="text" id="feedback-name" placeholder="Nguyễn Văn A" required>
+        </div>
+        <div class="form-group">
+          <label for="feedback-phone">Số điện thoại / Zalo <span class="required">*</span></label>
+          <input type="tel" id="feedback-phone" placeholder="0912345678" required>
+        </div>
+        <div class="form-group">
+          <label for="feedback-category">Vấn đề gặp phải <span class="required">*</span></label>
+          <select id="feedback-category" required>
+            <option value="">-- Chọn danh mục --</option>
+            <option value="Thái độ phục vụ">Thái độ phục vụ</option>
+            <option value="Thời gian chờ">Thời gian chờ</option>
+            <option value="Chất lượng dịch vụ">Chất lượng dịch vụ</option>
+            <option value="Chi phí">Chi phí</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="feedback-message">Nội dung chi tiết <span class="required">*</span></label>
+          <textarea id="feedback-message" rows="4" placeholder="Mô tả chi tiết vấn đề bạn gặp phải..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">GỬI GÓP Ý</button>
+      </form>
+    </section>
+
+    <!-- Screen 3: Submission Complete -->
+    <section id="screen-submitted" class="screen">
+      <div class="result-icon">✅</div>
+      <h2>Cảm ơn bạn đã góp ý!</h2>
+      <p class="submitted-text">Chúng tôi đã ghi nhận ý kiến của bạn và sẽ liên hệ lại trong thời gian sớm nhất.</p>
+      <a href="https://zalo.me" target="_blank" rel="noopener" class="btn btn-zalo">
+        📞 LIÊN HỆ HOTLINE ZALO VIP
+      </a>
+      <button id="btn-restart" class="btn btn-secondary">ĐÁNH GIÁ LẠI</button>
+    </section>
+
+    <footer class="footer">
+      <p>Powered by <strong>TVT Agency</strong></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

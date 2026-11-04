@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  tvt-review-booster:
+    build: .
+    container_name: tvt-review-booster
+    ports:
+      - "3003:3003"
+    environment:
+      - PORT=3003
+      - GOOGLE_PLACE_ID=${GOOGLE_PLACE_ID:-YOUR_GOOGLE_PLACE_ID}
+      - MIN_STARS_FOR_GOOGLE=${MIN_STARS_FOR_GOOGLE:-4}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID:-}
+      - BASE_URL=${BASE_URL:-http://localhost:3003}
+    volumes:
+      - feedback-data:/app/src/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3003/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  feedback-data:
