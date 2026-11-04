@@ -39,7 +39,7 @@ class TVT_Review_Booster {
         $atts = shortcode_atts([
             'place_id'  => get_option('tvt_rb_place_id', ''),
             'min_stars' => get_option('tvt_rb_min_stars', '4'),
-            'api_url'   => get_option('tvt_rb_api_url', 'http://localhost:3003'),
+            'api_url'   => get_option('tvt_rb_api_url', 'https://api.tvtagency.com/review'),
             'width'     => '100%',
             'height'    => '700',
         ], $atts, 'tvt_review_booster');
@@ -84,7 +84,7 @@ class TVT_Review_Booster {
         if (!current_user_can('manage_options')) {
             return;
         }
-        $api_url = get_option('tvt_rb_api_url', 'http://localhost:3003');
+        $api_url = get_option('tvt_rb_api_url', 'https://api.tvtagency.com/review');
         ?>
         <div class="wrap">
             <h1>TVT Review Booster Settings</h1>
